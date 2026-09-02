@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --color-background: #0a0908;
+  --color-background-raised: #121110;
+  --color-foreground: #ece7dd;
+  --color-muted: #9a9288;
+  --color-border: #232019;
+  --color-accent: #c98a4b;
+  --color-accent-hover: #e0a366;
+  --color-accent-foreground: #0a0908;
+
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-plex);
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, -3%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.animate-drift {
+  animation: drift 28s ease-in-out infinite;
+}
+
+.animate-drift-slow {
+  animation: drift 40s ease-in-out infinite reverse;
+}
+
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift,
+  .animate-drift-slow {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
