@@ -5,8 +5,6 @@ export const profile = {
   address: "4740 Mc Dougall Crescent, Niagara Falls, ON L2E 1B9",
   phone: "+1 416 834 0882",
   email: "habdulsalam97@gmail.com",
-  linkedin: "{{LINKEDIN_URL}}",
-  github: "{{GITHUB_URL}}",
 };
 
 export const summary =
